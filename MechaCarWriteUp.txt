@@ -1,0 +1,51 @@
+Using the Linear Model formula (lm) we create the following linear regression model to predict mpg:
+
+mpg = vehicle.length + vehicle.weight + spoiler.angle + ground.clearance + AWD, data = MechaCarmpg_table
+
+this regression model returned the following coefficients:
+
+Intercept = -104 
+VehicleLength = 6.27 
+VehicleWeight = 0.001245 
+SpoilerAngle = 0.06877 
+GroundClearance = 3.546 
+AWD = -3.411
+
+looking at the above variables we can eliminate Vehicle Weight and Spoiler Angle as they have the least impact on the mpg. The model can be re written as the following:
+
+mpg = vehicle.length + ground.clearance + AWD, data = MechaCarmpg_table
+
+			Pr(>|t|)
+(Intercept)		5.08e-08 
+vehicle.length		2.60E-12
+vehicle.weight		0.08 
+spoiler.angle	 	0.31 
+ground.clearance	5.21E-08
+AWD	 		0.19 
+
+F-statistic: 22.07 on 5 and 44 DF,  p-value: 5.35e-11
+
+According to the P-values for the T-test the only variables that provide a non-random amount of variance and a greater impact on the mpg are the Intercept, Vehicle length, ground clearance as the P-value for these three variables is smaller than our significance level of 0.05.
+As stated since the overall P-Value of 5.35e-11 is smaller than the significant level of 0.05 therefore we can say that the slope of the linear model is not zero. 
+
+Multiple R-squared:  0.7149,	Adjusted R-squared:  0.6825
+According to the regression model the R-Squared value helps hypothesize that there is a 71% accuracy in the mpg predictions. 
+
+Suspension Coil Summary
+
+The plot of the Suspension Coil dataset is normally distributed and the average is dense around the mean (1499.531) and median(1499.747). 
+However this does not tell us the full picture, therefore we should take a deeper dive in to the segments of the lots. After running the tests on the different lots I realize that lot 3 is significantly variant than lot 1 and 2.
+The variance of lot 3 is 220.01 therefore this lot should be avoided as it surpasses the threshold. 
+Variance 
+[Lot 1] 1.146024
+[Lot 2] 10.13151
+[Lot 3] 220.0106
+
+Design your own study
+
+In order for MechaCars to stand out as the industry lead we would need to perform additional tests on some features that interest consumers.
+
+Null Hypothesis: Improvement of Fuel Efficiency will increase sale of cars
+Alternative Hypothesis: Improvement of Fuel Efficiency will NOT increase sale of cars
+
+To perform the test on the question we would need to examine the sale of cars over the past few years versus the improvement of fuel efficiency. 
